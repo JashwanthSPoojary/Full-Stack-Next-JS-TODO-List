@@ -1,17 +1,17 @@
 import React from "react";
 
-const Todo = () => {
+const Todo = ({id,title,desc,mongoId,complete,deleteTodo,updateTodo}) => {
   return (
     <tr className=" border-b ">
       <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
-        1
+        {id+1}
       </th>
-      <td className="px-6 py-4">Study</td>
-      <td className="px-6 py-4">Learn Next JS</td>
-      <td className="px-6 py-4">Pending</td>
+      <td className={`px-6 py-4 ${complete?"line-through":""}`}>{title}</td>
+      <td className={`px-6 py-4 ${complete?"line-through":""}`}>{desc}</td>
+      <td className="px-6 py-4">{complete?"Complete":"Pending"}</td>
       <td className="px-6 py-4 flex gap-5">
-        <button className="py-2 px-4 bg-red-500 text-white ">Delete</button>
-        <button className="py-2 px-4 bg-green-500 text-white ">Done</button>
+        <button onClick={() => deleteTodo(mongoId)} className="py-2 px-4 bg-red-500 text-white ">Delete</button>
+        {complete?"":<button onClick={()=>updateTodo(mongoId)} className="py-2 px-4 bg-green-500 text-white ">Done</button>}
       </td>
     </tr>
   );
