@@ -10,8 +10,6 @@ const Navbar = () => {
             <li className="">About</li>
             <li className="">Contact</li>
         </ul>
-
-
     </nav>
   )
 }

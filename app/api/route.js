@@ -12,6 +12,7 @@ export async function GET(request){
     const todos = await TodoModal.find({});
     return NextResponse.json({todos:todos})
 }
+
 export async function POST(request){
     const  { title,description } = await request.json();
     await TodoModal.create({
